@@ -15,14 +15,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Middleware to log incoming request headers and body for debugging
-app.use((req, res, next) => {
-  console.log("Request Headers:", req.headers);
-  console.log("Request Body:", req.body);
-  next();
-});
 
+const allowedOrigins = ["http://localhost:5173",]
 app.use(cookieParser());
-app.use(cors({ credential: true }));
+app.use(cors({ origin: allowedOrigins, credentials: true }));
+
 
 // Api End points
 app.get("/", (req, res) => {
