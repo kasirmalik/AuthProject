@@ -9,7 +9,7 @@ const userAuth = (req, res, next) => {
     try {
        const tokenDecode= jwt.verify(token, process.env.JWT_SECRET);
        if (tokenDecode.id) {
-        req.body.userId = tokenDecode.id;
+        req.userId = tokenDecode.id;
         
        }else{
         return res.status(401).json({ message: "You are not authenticated" });
