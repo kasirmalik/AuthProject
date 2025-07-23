@@ -10,6 +10,7 @@ export const getUserData = async (req, res) => {
       res.json({
         success:true,
         user:{
+            id: user._id,
             name :user.name,
             isAccountVerified :user.isAccountVerified,
         }
